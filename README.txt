@@ -1,5 +1,6 @@
-Etapes pour réussir:
-- élaborer algorithme pour reconnaître une note
-- l'implémenter en python
-- élaborer un algorithme pour comparer la note reconnue avec les notes dans la base de données
-- l'implémenter en python
+Pour l'instant : 
+- Le main permet de reconnaître une note
+
+Plus tard : 
+- développer la comparaison entre la note jouée et la note juste
+- mettre chaque fonction dans un fichier à part appelé par le main
