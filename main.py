@@ -1,6 +1,5 @@
 import pyaudio
 import numpy as np
-import matplotlib.pyplot as plt
 
 def determine_note(data):
     # Recherche de la fréquence fondamentale
@@ -38,10 +37,6 @@ data = np.frombuffer(data, dtype=np.int16)
 
 # Calcule la transformée de Fourier du signal
 sp = np.fft.rfft(data)
-
-# Affiche le spectre du signal
-#plt.plot(sp)
-#plt.show()
 
 # Déterminne la note jouée
 print(determine_note(sp))
