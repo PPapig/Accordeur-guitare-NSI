@@ -1,6 +1,7 @@
 from numpy import argmax
 
 def determine_note(data):
+    """Prend un tableau numpy en argument et renvoie la note jouée"""
     # Recherche de la fréquence fondamentale
     frequency = argmax(data)
     print(f"Frequency: {frequency} Hz")
