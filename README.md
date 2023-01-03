@@ -3,4 +3,4 @@ Pour l'instant :
 
 Plus tard : 
 - développer la comparaison entre la note jouée et la note juste
-- développer le fait que la lecture du micro se fasse lorsqu'il déteccte une variation dans le son capté
+- développer le fait que la lecture du micro se fasse lorsqu'il détecte une variation dans le son capté
