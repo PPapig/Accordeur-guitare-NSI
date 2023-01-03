@@ -1,10 +1,12 @@
 from numpy import argmax
 
 def determine_note(data):
-    """Prend un tableau numpy en argument et renvoie la note jouée"""
+    """
+    Prend un tableau numpy en argument et renvoie la note jouée
+    """
     # Recherche de la fréquence fondamentale
-    frequency = argmax(data)
-    print(f"Frequency: {frequency} Hz")
+    frequence = argmax(data)
+    print(f"Frequence: {frequence} Hz")
 
     # Recherche de la note correspondante dans la table de correspondance
     notes = {
@@ -16,6 +18,6 @@ def determine_note(data):
         "E2": 82,
     }
     for note, f in notes.items():
-        if frequency > f - 10 and frequency < f + 10:
+        if frequence > f - 10 and frequence < f + 10:
             return note
     return "Note non reconnue"
