@@ -2,6 +2,9 @@ from pyaudio import PyAudio, paInt16
 from numpy import frombuffer, int16, fft
 
 def donnees():
+    """
+    écoute le mmicro et convertit les données en tableau numpy
+    """
     # Ouvre un flux d'enregistrement avec Pyaudio
     p = PyAudio()
     stream = p.open(format=paInt16, channels=1, rate=44100, input=True, frames_per_buffer=1024)
