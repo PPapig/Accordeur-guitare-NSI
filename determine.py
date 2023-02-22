@@ -18,6 +18,10 @@ def determine_note(data):
         "E2": 82,
     }
     for note, f in notes.items():
-        if frequence > f - 10 and frequence < f + 10:
+        if frequence >= f - 5 and frequence <= f + 5:
             return note
+        elif frequence >= f - 10 and frequence <= f - 5:
+            return "Trop grave"
+        elif frequence <= f + 10 and frequence >= f + 5:
+            return "Trop aigu"
     return "Note non reconnue"
