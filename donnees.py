@@ -3,24 +3,32 @@ from numpy import frombuffer, int16, fft
 
 def donnees():
     """
-    écoute le mmicro et convertit les données en tableau numpy
+    écoute le micro et convertit les données en tableau numpy
     """
     # Ouvre un flux d'enregistrement avec Pyaudio
     flux = PyAudio()
     stream = flux.open(format=paInt16, channels=1, rate=44100, input=True, frames_per_buffer=1024)
 
-    # Enregistre le son pendant 1 seconde
+    # Définir le seuil de volume
+    seuil = 2500
+
+    # Enregistre le son uniquement lorsqu'il dépasse le seuil de volume
+    while True:
+        donnee = stream.read(1024)
+        tab = frombuffer(donnee, dtype=int16)
+        volume = abs(tab).mean()
+        if volume > seuil:
+            break
+
+    # Enregistre le son et calcule la transformée de Fourier du signal
     donnee = stream.read(44100)
+    tab = frombuffer(donnee, dtype=int16)
+    fourier = fft.rfft(tab)
 
     # Ferme le flux d'enregistrement
     stream.stop_stream()
     stream.close()
     flux.terminate()
 
-    # Transforme les données audio en un tableau Numpy
-    donnee = frombuffer(data, dtype=int16)
-
-    # Calcule la transformée de Fourier du signal
-    fourier = fft.rfft(data)
-
+    # Retourne la transformée de Fourier du signal
     return fourier
