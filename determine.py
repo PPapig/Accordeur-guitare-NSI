@@ -21,7 +21,7 @@ def determine_note(data):
         if frequence >= f - 5 and frequence <= f + 5:
             return note
         elif frequence >= f - 10 and frequence <= f - 5:
-            return "Trop grave"
+            return "Trop grave", note
         elif frequence <= f + 10 and frequence >= f + 5:
-            return "Trop aigu"
+            return "Trop aigu", note
     return "Note non reconnue"
